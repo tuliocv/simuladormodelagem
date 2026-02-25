@@ -303,7 +303,7 @@ with st.expander("⚙️ Ajustes avançados (opcional)", expanded=False):
     cf = st.number_input("Custo fixo", min_value=0.0, value=float(sc["cf"]), step=500.0)
     cv = st.number_input("Custo variável por unidade", min_value=0.0, value=float(sc["cv"]), step=0.5)
     p = st.number_input("Preço unitário (base)", min_value=0.0, value=float(sc["p"]), step=0.5)
-else:
+
     cf, cv, p = float(sc["cf"]), float(sc["cv"]), float(sc["p"])
 
 st.divider()
