@@ -96,8 +96,15 @@ scenario_name = st.selectbox("Escolha o cenário", [f"{s['id']} - {s['nome']}" f
 scenario_id = scenario_name.split("-")[0].strip()
 sc = next(s for s in SCENARIOS if s["id"] == scenario_id)
 
-st.metric("Custo fixo", brl(sc["cf"]))
-st.metric("Preço base", brl(sc["p"]))
+c1, c2, c3 = st.columns(3)
+c1.metric("Custo fixo (CF)", brl(sc["cf"]))
+c2.metric("Custo variável (CV)", brl(sc["cv"]))
+c3.metric("Preço base (P)", brl(sc["p"]))
+
+c4, c5, c6 = st.columns(3)
+c4.metric("Caixa inicial", brl(sc["caixa"]))
+c5.metric("Caixa mínimo", brl(sc["caixa_min"]))
+c6.metric("Risco (1–5)", str(sc["risco"]))
 
 q = st.slider("Quantidade", 0, 6000, 3000, 100)
 desconto = st.slider("Desconto (%)", 0, 30, 10)
